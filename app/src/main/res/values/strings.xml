@@ -6,4 +6,7 @@
     <string name="search">Поиск</string>
     <string name="courses">Мои курсы</string>
     <string name="profile">Профиль</string>
+    <string name="description_item_imageview">item imageView description</string>
+    <string name="placeholder_soft_skills">Soft Skills. Навыки коммуникации</string>
+    <string name="description_favorite_icon">favorite icon</string>
 </resources>
