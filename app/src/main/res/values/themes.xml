@@ -14,6 +14,13 @@
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
 
         <!-- Customize your theme here. -->
+
+        <item name="searchViewStyle">@style/SearchViewStyle</item>
+        <!--SearchView query text color-->
+        <item name="android:textColorPrimary">@color/white</item>
+        <!--SearchView query hint text color-->
+        <item name="android:textColorHint">@color/white</item>
+
     </style>
 
     <style name="BottomNavStyle" parent="Widget.MaterialComponents.BottomNavigationView">
@@ -23,7 +30,21 @@
         <item name="elevation">2dp</item>
         <item name="itemTextColor">@drawable/bottom_nav_item_selector</item>
         <item name="itemIconTint">@drawable/bottom_nav_item_selector</item>
+        <item name="backgroundColor">@color/transparent</item>
     </style>
 
+
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="android:background">@drawable/bottom_navigation_shape</item>
+        <item name="android:backgroundTint">@color/light_gray</item>
+        <item name="searchIcon">@drawable/ic_baseline_search_24</item>
+        <item name="closeIcon">@drawable/ic_baseline_close_24</item>
+        <item name="iconifiedByDefault">false</item>
+        <item name="hintEnabled">true</item>
+        <item name="defaultQueryHint">Поиск...</item>
+
+        <!--remove search bottom line -->
+        <item name="queryBackground">@color/transparent</item>
+    </style>
 
 </resources>
