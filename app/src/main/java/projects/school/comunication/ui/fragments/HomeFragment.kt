@@ -19,13 +19,13 @@ class HomeFragment : Fragment() {
     private lateinit var recyclerAdapter: HomeParentRecyclerAdapter
 
     private val childList: List<HomeChildItem> = listOf(
-        HomeChildItem("Header 1", "", true),
-        HomeChildItem("Header 2", "", false),
-        HomeChildItem("Header 3", "", true),
-        HomeChildItem("Header 4", "", true),
-        HomeChildItem("Header 5", "", false),
-        HomeChildItem("Header 6", "", true),
-        HomeChildItem("Header 7", "", true)
+        HomeChildItem("Header 1", 0, true),
+        HomeChildItem("Header 2", 0, false),
+        HomeChildItem("Header 3", 1, true),
+        HomeChildItem("Header 4", 1, true),
+        HomeChildItem("Header 5", 1, false),
+        HomeChildItem("Header 6", 1, true),
+        HomeChildItem("Header 7", 1, true)
     )
 
     private val parentList: List<HomeParentItem> = listOf(

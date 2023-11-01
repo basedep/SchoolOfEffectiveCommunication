@@ -9,9 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import projects.school.comunication.R
 import projects.school.comunication.model.HomeChildItem
 
-class HomeChildRecyclerAdapter(list: List<HomeChildItem>) : RecyclerView.Adapter<HomeChildRecyclerAdapter.ChildViewHolder>() {
+class HomeChildRecyclerAdapter(private val list: List<HomeChildItem>) : RecyclerView.Adapter<HomeChildRecyclerAdapter.ChildViewHolder>() {
 
-    private val itemList = list
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChildViewHolder {
 
@@ -24,12 +23,12 @@ class HomeChildRecyclerAdapter(list: List<HomeChildItem>) : RecyclerView.Adapter
     override fun onBindViewHolder(holder: ChildViewHolder, position: Int) {
 
         holder.apply {
-            header.text = itemList[position].header
+            header.text = list[position].header
         }
     }
 
     override fun getItemCount(): Int {
-        return itemList.size
+        return list.size
     }
 
 
