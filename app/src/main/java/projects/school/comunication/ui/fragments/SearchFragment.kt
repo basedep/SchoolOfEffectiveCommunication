@@ -9,22 +9,22 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import projects.school.comunication.R
 import projects.school.comunication.adapter.SearchRecyclerAdapter
-import projects.school.comunication.model.HomeChildItem
+import projects.school.comunication.model.Course
 
 class SearchFragment : Fragment() {
 
     private lateinit var recycler: RecyclerView
     private lateinit var searchAdapter: SearchRecyclerAdapter
 
-    private val dataset = listOf<HomeChildItem>(
-        HomeChildItem("Header title 1", R.drawable.im1, false),
-        HomeChildItem("Header title 2", R.drawable.im2, false),
-        HomeChildItem("Header title 3", R.drawable.im3, false),
-        HomeChildItem("Header title 4", R.drawable.im4, false),
-        HomeChildItem("Header title 5", R.drawable.im5, false),
-        HomeChildItem("Header title 6", R.drawable.im6, false),
-        HomeChildItem("Header title 7", R.drawable.im3, false),
-        HomeChildItem("Header title 8", R.drawable.im4, false)
+    private val dataset = listOf<Course>(
+        Course("Header title 1", R.drawable.im1, false, null),
+        Course("Header title 2", R.drawable.im2, false, null),
+        Course("Header title 3", R.drawable.im3, false, null),
+        Course("Header title 4", R.drawable.im4, false, null),
+        Course("Header title 5", R.drawable.im5, false, null),
+        Course("Header title 6", R.drawable.im6, false, null),
+        Course("Header title 7", R.drawable.im3, false, null),
+        Course("Header title 8", R.drawable.im4, false, null)
     )
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,  savedInstanceState: Bundle?): View? {

@@ -21,6 +21,12 @@
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="projects.school.comunication.ui.fragments.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
         android:id="@+id/homeFragment"
         android:name="projects.school.comunication.ui.fragments.HomeFragment"
         android:label="fragment_home"

@@ -18,8 +18,9 @@
 
     <item
         android:id="@+id/favoriteFragment"
-        android:title="@string/favourite"
-        android:icon="@drawable/ic_item_favorite_24"/>
+        android:title="@string/profile"
+        android:icon="@drawable/ic_item_favorite_24"
+        android:iconTint="@color/white"/>
 
     <item
         android:id="@+id/profileFragment"

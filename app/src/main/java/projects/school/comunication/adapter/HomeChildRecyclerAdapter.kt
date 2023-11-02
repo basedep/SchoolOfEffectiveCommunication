@@ -7,9 +7,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import projects.school.comunication.R
-import projects.school.comunication.model.HomeChildItem
+import projects.school.comunication.model.Course
 
-class HomeChildRecyclerAdapter(private val list: List<HomeChildItem>) : RecyclerView.Adapter<HomeChildRecyclerAdapter.ChildViewHolder>() {
+class HomeChildRecyclerAdapter(private val list: List<Course>) : RecyclerView.Adapter<HomeChildRecyclerAdapter.ChildViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChildViewHolder {

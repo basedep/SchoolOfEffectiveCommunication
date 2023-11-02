@@ -1,7 +1,5 @@
 package projects.school.comunication.adapter
 
-import android.content.res.Resources
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,11 +7,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.squareup.picasso.Picasso
 import projects.school.comunication.R
-import projects.school.comunication.model.HomeChildItem
+import projects.school.comunication.model.Course
 
-class SearchRecyclerAdapter(private val list: List<HomeChildItem>) : RecyclerView.Adapter<SearchRecyclerAdapter.SearchViewHolder>() {
+class SearchRecyclerAdapter(private val list: List<Course>) : RecyclerView.Adapter<SearchRecyclerAdapter.SearchViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchViewHolder {
