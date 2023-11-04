@@ -15,7 +15,7 @@ class SearchRecyclerAdapter(private val list: List<Course>) : RecyclerView.Adapt
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchViewHolder {
 
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.search_recycler_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.recycler_item, parent, false)
 
         return SearchViewHolder(view)
     }
@@ -23,6 +23,7 @@ class SearchRecyclerAdapter(private val list: List<Course>) : RecyclerView.Adapt
     override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
         holder.apply {
             headerText.text = list[position].header
+            headerText.setLines(3)
             image.setImageDrawable(ResourcesCompat.getDrawable(holder.image.context.resources, list[position].image, null)) //to delete
         }
     }
@@ -35,9 +36,9 @@ class SearchRecyclerAdapter(private val list: List<Course>) : RecyclerView.Adapt
 
     inner class SearchViewHolder(view: View) : RecyclerView.ViewHolder(view){
 
-        val image: ImageView = view.findViewById(R.id.search_image_list_item)
-        val headerText: TextView = view.findViewById(R.id.search_list_title)
-        val favorite: ImageView = view.findViewById(R.id.search_favorite)
+        val image: ImageView = view.findViewById(R.id.image_view)
+        val headerText: TextView = view.findViewById(R.id.header)
+        val favorite: ImageView = view.findViewById(R.id.favorite)
 
     }
 

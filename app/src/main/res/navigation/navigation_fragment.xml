@@ -22,7 +22,7 @@
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/favoriteFragment"
-        android:name="projects.school.comunication.ui.fragments.ProfileFragment"
+        android:name="projects.school.comunication.ui.fragments.FavoriteFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 

@@ -15,7 +15,7 @@ class HomeChildRecyclerAdapter(private val list: List<Course>) : RecyclerView.Ad
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChildViewHolder {
 
         //inflate child view
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.home_nested_list_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.recycler_item, parent, false)
 
         return ChildViewHolder(view)
     }
@@ -34,8 +34,8 @@ class HomeChildRecyclerAdapter(private val list: List<Course>) : RecyclerView.Ad
 
     inner class ChildViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val header: TextView = itemView.findViewById(R.id.item_header_text)
-        val imageView: ImageView = itemView.findViewById(R.id.item_image)
+        val header: TextView = itemView.findViewById(R.id.header)
+        val imageView: ImageView = itemView.findViewById(R.id.image_view)
         val favoriteImage: ImageView = itemView.findViewById(R.id.favorite)
 
 

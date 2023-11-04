@@ -12,4 +12,11 @@
     <string name="title_placeholder">Title placeholder</string>
     <string name="favourite">Избранное</string>
     <string name="course_progress">Пройдено</string>
+    <string name="whatch">Смотреть</string>
+    <string name="seen_videos">0/0</string>
+    <string name="category_placeholder">Карьера</string>
+    <string name="duration_placeholder">Продолжительность</string>
+    <string name="seen_videos_text">Видео просмотерно:</string>
+    <string name="tests_passed">Тестов пройдено:</string>
+    <string name="tests_passed_placeholder">0/0</string>
 </resources>
