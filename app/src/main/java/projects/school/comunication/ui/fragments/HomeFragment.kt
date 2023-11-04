@@ -17,7 +17,7 @@ class HomeFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var recyclerAdapter: HomeParentRecyclerAdapter
 
-    private val childList: List<Course> = listOf(
+    /*private val childList: List<Course> = listOf(
         Course("Header 1", 0, true, null),
         Course("Header 2", 0, false, null),
         Course("Header 3", 1, true, null),
@@ -32,7 +32,7 @@ class HomeFragment : Fragment() {
         HomeParentItem("TITLE 2", childList),
         HomeParentItem("TITLE 3", childList)
     )
-
+*/
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -43,11 +43,11 @@ class HomeFragment : Fragment() {
 
 
         val layout = LinearLayoutManager(context)
-        recyclerAdapter = HomeParentRecyclerAdapter(parentList)
+      /*  recyclerAdapter = HomeParentRecyclerAdapter(parentList)
 
         recyclerView = view.findViewById(R.id.home_recycler)
         recyclerView.adapter = recyclerAdapter
-        recyclerView.layoutManager = layout
+        recyclerView.layoutManager = layout*/
 
 
         return view

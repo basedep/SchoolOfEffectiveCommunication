@@ -16,7 +16,7 @@ class CoursesFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var recyclerAdapter: CoursesRecyclerAdapter
-
+/*
     private val courses: List<Course> = listOf(
         Course("Header 1", 0, true, 5),
         Course("Header 2", 0, false, 100),
@@ -25,18 +25,18 @@ class CoursesFragment : Fragment() {
         Course("Header 5", 1, false, 0),
         Course("Header 6", 1, true, 34),
         Course("Header 7", 1, true, 89)
-    )
+    )*/
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val view = inflater.inflate(R.layout.fragment_courses, container, false)
 
         val layout = LinearLayoutManager(context)
-        recyclerAdapter = CoursesRecyclerAdapter(courses)
+        /*recyclerAdapter = CoursesRecyclerAdapter(courses)
 
         recyclerView = view.findViewById(R.id.courses_recycler)
         recyclerView.adapter = recyclerAdapter
-        recyclerView.layoutManager = layout
+        recyclerView.layoutManager = layout*/
 
         return view
     }
