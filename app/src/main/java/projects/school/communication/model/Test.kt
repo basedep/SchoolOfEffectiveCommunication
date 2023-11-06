@@ -1,4 +1,4 @@
-package projects.school.comunication.model
+package projects.school.communication.model
 
 data class Test(
     val id: Int,

@@ -1,4 +1,4 @@
-package projects.school.comunication.adapter
+package projects.school.communication.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,8 +8,8 @@ import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import projects.school.comunication.R
-import projects.school.comunication.model.Course
+import projects.school.communication.R
+import projects.school.communication.model.Course
 
 class CoursesRecyclerAdapter(private val list: List<Course>) : RecyclerView.Adapter<CoursesRecyclerAdapter.CoursesViewHolder>() {
 

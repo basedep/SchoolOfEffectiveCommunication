@@ -17,7 +17,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ec1"
                 android:contentDescription="@string/description_item_imageview" />
 
             <TextView

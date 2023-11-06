@@ -1,4 +1,4 @@
-package projects.school.comunication
+package projects.school.communication
 
 import org.junit.Test
 

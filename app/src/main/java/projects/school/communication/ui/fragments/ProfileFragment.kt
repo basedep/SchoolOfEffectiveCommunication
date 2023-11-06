@@ -1,11 +1,11 @@
-package projects.school.comunication.ui.fragments
+package projects.school.communication.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import projects.school.comunication.R
+import projects.school.communication.R
 
 class ProfileFragment : Fragment() {
 

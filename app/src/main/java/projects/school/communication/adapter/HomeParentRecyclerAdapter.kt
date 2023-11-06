@@ -1,4 +1,4 @@
-package projects.school.comunication.adapter
+package projects.school.communication.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import projects.school.comunication.R
-import projects.school.comunication.model.HomeParentItem
+import projects.school.communication.R
+import projects.school.communication.model.HomeParentItem
 
 class HomeParentRecyclerAdapter(list: List<HomeParentItem>) : RecyclerView.Adapter<HomeParentRecyclerAdapter.ParentViewHolder>(){
 

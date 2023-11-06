@@ -1,15 +1,13 @@
-package projects.school.comunication.ui.fragments
+package projects.school.communication.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import projects.school.comunication.R
-import projects.school.comunication.adapter.SearchRecyclerAdapter
-import projects.school.comunication.model.Course
+import projects.school.communication.R
+import projects.school.communication.adapter.SearchRecyclerAdapter
 
 class SearchFragment : Fragment() {
 

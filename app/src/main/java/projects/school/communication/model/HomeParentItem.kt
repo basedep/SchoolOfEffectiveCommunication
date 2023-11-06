@@ -1,4 +1,4 @@
-package projects.school.comunication.model
+package projects.school.communication.model
 
 class HomeParentItem(
     val title: String,

@@ -1,4 +1,4 @@
-package projects.school.comunication.adapter
+package projects.school.communication.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,8 +7,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
-import projects.school.comunication.R
-import projects.school.comunication.model.Course
+import projects.school.communication.R
+import projects.school.communication.model.Course
 
 class SearchRecyclerAdapter(private val list: List<Course>) : RecyclerView.Adapter<SearchRecyclerAdapter.SearchViewHolder>() {
 
@@ -24,7 +24,7 @@ class SearchRecyclerAdapter(private val list: List<Course>) : RecyclerView.Adapt
         holder.apply {
             headerText.text = list[position].header
             headerText.setLines(3)
-            image.setImageDrawable(ResourcesCompat.getDrawable(holder.image.context.resources, list[position].image, null)) //to delete
+            //image.setImageDrawable(ResourcesCompat.getDrawable(holder.image.context.resources, list[position].image, null)) //to delete
         }
     }
 

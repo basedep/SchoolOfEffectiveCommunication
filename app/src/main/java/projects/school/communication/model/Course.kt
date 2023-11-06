@@ -1,11 +1,19 @@
-package projects.school.comunication.model
+package projects.school.communication.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(
+    tableName = "CourseTable"
+)
 data class Course(
+    @PrimaryKey(autoGenerate = true)
+    val id: Int? = null,
     val header: String,
     val description: String,
     val category: String,
     val duration: Int,
-    val image: Int,
+    val imageURL: String,
     val progress: Int,
     val isAdded: Boolean,
     val isFavorite: Boolean,

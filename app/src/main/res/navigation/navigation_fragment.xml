@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/searchFragment"
-        android:name="projects.school.comunication.ui.fragments.SearchFragment"
+        android:name="projects.school.communication.ui.fragments.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" >
         <action
@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/coursesFragment"
-        android:name="projects.school.comunication.ui.fragments.CoursesFragment"
+        android:name="projects.school.communication.ui.fragments.CoursesFragment"
         android:label="fragment_courses"
         tools:layout="@layout/fragment_courses" >
         <action
@@ -35,13 +35,13 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="projects.school.comunication.ui.fragments.ProfileFragment"
+        android:name="projects.school.communication.ui.fragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/favoriteFragment"
-        android:name="projects.school.comunication.ui.fragments.FavoriteFragment"
+        android:name="projects.school.communication.ui.fragments.FavoriteFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -55,7 +55,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="projects.school.comunication.ui.fragments.HomeFragment"
+        android:name="projects.school.communication.ui.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -69,7 +69,7 @@
 
     <fragment
         android:id="@+id/courseFragment"
-        android:name="projects.school.comunication.ui.fragments.CourseFragment"
+        android:name="projects.school.communication.ui.fragments.CourseFragment"
         android:label="CourseFragment"
         tools:layout="@layout/fragment_course"/>
 </navigation>
