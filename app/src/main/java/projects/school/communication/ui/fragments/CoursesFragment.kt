@@ -8,33 +8,24 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import projects.school.communication.R
-import projects.school.communication.adapter.CoursesRecyclerAdapter
+import projects.school.communication.adapter.CourseRecyclerAdapter
 
 class CoursesFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
-    private lateinit var recyclerAdapter: CoursesRecyclerAdapter
-/*
-    private val courses: List<Course> = listOf(
-        Course("Header 1", 0, true, 5),
-        Course("Header 2", 0, false, 100),
-        Course("Header 3", 1, true, 1),
-        Course("Header 4", 1, true, 0),
-        Course("Header 5", 1, false, 0),
-        Course("Header 6", 1, true, 34),
-        Course("Header 7", 1, true, 89)
-    )*/
+    private lateinit var recyclerAdapter: CourseRecyclerAdapter
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val view = inflater.inflate(R.layout.fragment_courses, container, false)
 
         val layout = LinearLayoutManager(context)
-        /*recyclerAdapter = CoursesRecyclerAdapter(courses)
+        recyclerAdapter = CourseRecyclerAdapter()
 
         recyclerView = view.findViewById(R.id.courses_recycler)
         recyclerView.adapter = recyclerAdapter
-        recyclerView.layoutManager = layout*/
+        recyclerView.layoutManager = layout
 
         return view
     }

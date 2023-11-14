@@ -5,34 +5,26 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import projects.school.communication.R
-import projects.school.communication.adapter.SearchRecyclerAdapter
+import projects.school.communication.adapter.CourseRecyclerAdapter
 
 class SearchFragment : Fragment() {
 
     private lateinit var recycler: RecyclerView
-    private lateinit var searchAdapter: SearchRecyclerAdapter
+    private lateinit var courseRecyclerAdapter: CourseRecyclerAdapter
 
-   /* private val dataset = listOf<Course>(
-        Course("Header title 1", R.drawable.im1, false, null),
-        Course("Header title 2", R.drawable.im2, false, null),
-        Course("Header title 3", R.drawable.im3, false, null),
-        Course("Header title 4", R.drawable.im4, false, null),
-        Course("Header title 5", R.drawable.im5, false, null),
-        Course("Header title 6", R.drawable.im6, false, null),
-        Course("Header title 7", R.drawable.im3, false, null),
-        Course("Header title 8", R.drawable.im4, false, null)
-    )*/
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,  savedInstanceState: Bundle?): View? {
 
         val view = inflater.inflate(R.layout.fragment_search, container, false)
 
-        /*recycler = view.findViewById(R.id.search_recycler)
-        searchAdapter = SearchRecyclerAdapter(dataset)
-        recycler.adapter = searchAdapter
-        recycler.layoutManager = GridLayoutManager(context, 2)*/
+        recycler = view.findViewById(R.id.search_recycler)
+        courseRecyclerAdapter = CourseRecyclerAdapter()
+        //courseRecyclerAdapter.differ.submitList()
+        recycler.adapter = courseRecyclerAdapter
+        recycler.layoutManager = GridLayoutManager(context, 2)
 
         return view
     }
