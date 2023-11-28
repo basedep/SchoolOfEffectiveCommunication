@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recycler_item.view.*
 import projects.school.communication.R
+import projects.school.communication.model.Course
 import projects.school.communication.utils.MyDiffUtil
 
 class CourseRecyclerAdapter() : RecyclerView.Adapter<CourseRecyclerAdapter.ChildViewHolder>() {
@@ -29,14 +31,17 @@ class CourseRecyclerAdapter() : RecyclerView.Adapter<CourseRecyclerAdapter.Child
         val course = differ.currentList[position]
 
         holder.itemView.apply {
-           /* Picasso.with(holder.itemView.context)
+            Picasso.with(holder.itemView.context)
                 .load(course.imageURL)
                 .placeholder(R.drawable.ic_image_placeholder_24)
                 .fit()
-                .into(image_view)*/
+                .centerCrop()
+                .into(image_view)
             header.text = course.header
-            if (course.isFavorite)
-                favorite.setImageDrawable(ResourcesCompat.getDrawable(Resources.getSystem(),R.drawable.ic_item_favorite_24, null))
+            progressBar.progress = course.progress
+            setOnClickListener {
+                onItemClickListener?.let{ it(course) }
+            }
 
         }
     }
@@ -45,6 +50,12 @@ class CourseRecyclerAdapter() : RecyclerView.Adapter<CourseRecyclerAdapter.Child
         return differ.currentList.size
     }
 
+
+    private var onItemClickListener: ((Course) -> Unit)? = null
+
+    fun setOnItemClickListener(listener: (Course) -> Unit){
+        onItemClickListener = listener
+    }
 
     inner class ChildViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 

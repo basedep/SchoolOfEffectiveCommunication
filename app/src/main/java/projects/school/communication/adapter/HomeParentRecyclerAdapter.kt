@@ -9,13 +9,14 @@ import androidx.recyclerview.widget.RecyclerView
 import projects.school.communication.R
 import projects.school.communication.model.HomeParentItem
 
-class HomeParentRecyclerAdapter(list: List<HomeParentItem>, childRecyclerAdapter: CourseRecyclerAdapter) : RecyclerView.Adapter<HomeParentRecyclerAdapter.ParentViewHolder>(){
+class HomeParentRecyclerAdapter(private val parentList: List<HomeParentItem>, childRecyclerAdapter: CourseRecyclerAdapter) : RecyclerView.Adapter<HomeParentRecyclerAdapter.ParentViewHolder>(){
 
     //RecyclerViewPool нужен для того чтобы вложенные друг в друга ресайклеры использовали один общий пул для ViewHolder'ов
     //получаем пул для внешнего списка
     private val viewPool = RecyclerView.RecycledViewPool()
-    private val itemList: List<HomeParentItem> = list //получаем список
+
     private val childAdapter = childRecyclerAdapter
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ParentViewHolder {
 
@@ -27,23 +28,25 @@ class HomeParentRecyclerAdapter(list: List<HomeParentItem>, childRecyclerAdapter
 
     override fun onBindViewHolder(holder: ParentViewHolder, position: Int) {
 
-        val parentItem = itemList[position] //получаем элемент с которым соеденяем данные
+        val parentItem = parentList[position] //получаем элемент с которым соеденяем данные
 
         val layoutManager = LinearLayoutManager(holder.nestedRecycler.context, LinearLayoutManager.HORIZONTAL, false)
         layoutManager.initialPrefetchItemCount =
-            parentItem.list.size //указываем внутреннему recycler сколько View нужно подготовить перед показом на экран
+            childAdapter.differ.currentList.size //указываем внутреннему recycler сколько View нужно подготовить перед показом на экран
 
 
         holder.apply {
             header.text = parentItem.title //задаем холдеру текст title'a элемента
             nestedRecycler.layoutManager = layoutManager
-            nestedRecycler.adapter = childAdapter  //адаптер для дочерней recycler
+
+
+            nestedRecycler.adapter = childAdapter //адаптер для дочерней recycler
             nestedRecycler.setRecycledViewPool(viewPool)  //задаем ViewPool
         }
     }
 
     override fun getItemCount(): Int {
-        return itemList.size
+        return parentList.size
     }
 
 

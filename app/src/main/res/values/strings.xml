@@ -21,4 +21,10 @@
     <string name="tests_passed_placeholder">0/0</string>
     <string name="add_to_my_courses">add to my courses</string>
     <string name="add_to_my_favorite">add to my favorite</string>
+    <string name="login">Войти</string>
+    <string name="signup">Регистрация</string>
+    <string name="email">Почта</string>
+    <string name="password">Пароль</string>
+    <string name="pass_the_test">Пройти тест</string>
+    <string name="watch">Смотреть</string>
 </resources>

@@ -71,5 +71,26 @@
         android:id="@+id/courseFragment"
         android:name="projects.school.communication.ui.fragments.CourseFragment"
         android:label="CourseFragment"
-        tools:layout="@layout/fragment_course"/>
+        tools:layout="@layout/fragment_course">
+
+        <argument
+            android:name="courseObject"
+            app:argType="projects.school.communication.model.Course"/>
+        <action
+            android:id="@+id/action_courseFragment_to_videoActivity"
+            app:destination="@id/videoActivity" />
+    </fragment>
+
+    <activity
+        android:id="@+id/videoActivity"
+        android:name="projects.school.communication.ui.activities.VideoActivity"
+        android:label="activity_video"
+        tools:layout="@layout/activity_video">
+
+        <argument
+            android:name="videoObject"
+            app:argType="projects.school.communication.model.Video"/>
+
+    </activity>
+
 </navigation>

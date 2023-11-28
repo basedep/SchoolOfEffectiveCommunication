@@ -21,6 +21,7 @@
         <!--SearchView query hint text color-->
         <item name="android:textColorHint">@color/white</item>
 
+        <item name="editTextStyle">@style/EditTextStyle</item>
     </style>
 
     <style name="BottomNavStyle" parent="Widget.MaterialComponents.BottomNavigationView">
@@ -44,6 +45,16 @@
         <item name="defaultQueryHint">Поиск...</item>
 
         <!--remove search bottom line -->
+        <item name="queryBackground">@color/transparent</item>
+    </style>
+
+
+    <style name="EditTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/bottom_navigation_shape</item>
+        <item name="android:backgroundTint">@color/secondary_text</item>
+        <item name="iconifiedByDefault">false</item>
+        <item name="hintEnabled">true</item>
+        <!--remove bottom line -->
         <item name="queryBackground">@color/transparent</item>
     </style>
 

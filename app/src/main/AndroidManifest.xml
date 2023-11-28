@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="projects.school.communication">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".application.MyApplication"
         android:allowBackup="true"
@@ -15,12 +17,29 @@
         android:theme="@style/Theme.SchoolOfEffectiveCommunication"
         tools:targetApi="31">
         <activity
-            android:name="projects.school.communication.ui.activities.MainActivity"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|keyboardHidden"
+            android:name=".ui.activities.VideoActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".ui.activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="io.appwrite.views.CallbackActivity"
+            android:exported="true">
+            <intent-filter android:label="android_web_auth">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="appwrite-callback-654657b465128136b2a3" />
             </intent-filter>
         </activity>
     </application>
