@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import projects.school.communication.R
 
 
-class FavoriteFragment : Fragment() {
+class FavoriteFragment : BaseFragment() {
+
+    override var bottomNavigationVisibility: Int = View.VISIBLE
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

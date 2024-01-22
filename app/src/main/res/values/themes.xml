@@ -25,13 +25,9 @@
     </style>
 
     <style name="BottomNavStyle" parent="Widget.MaterialComponents.BottomNavigationView">
-        <item name="android:background">@drawable/bottom_navigation_shape</item>
-        <item name="boxCornerRadiusTopStart">10dp</item>
-        <item name="itemIconSize">28dp</item>
-        <item name="elevation">2dp</item>
+        <item name="itemIconSize">24dp</item>
         <item name="itemTextColor">@drawable/bottom_nav_item_selector</item>
         <item name="itemIconTint">@drawable/bottom_nav_item_selector</item>
-        <item name="backgroundColor">@color/transparent</item>
     </style>
 
 

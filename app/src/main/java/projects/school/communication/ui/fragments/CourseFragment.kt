@@ -1,7 +1,6 @@
 package projects.school.communication.ui.fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,30 +15,23 @@ import kotlinx.android.synthetic.main.fragment_course.course_description_text
 import kotlinx.android.synthetic.main.fragment_course.duration
 import kotlinx.android.synthetic.main.fragment_course.imageView
 import kotlinx.android.synthetic.main.fragment_course.passed_tests
-import kotlinx.android.synthetic.main.fragment_course.recycler
 import kotlinx.android.synthetic.main.fragment_course.titleText
 import kotlinx.android.synthetic.main.fragment_course.watched_videos
-import kotlinx.android.synthetic.main.recycler_item.view.image_view
-import kotlinx.android.synthetic.main.recycler_item_video.view.watch_video
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import projects.school.communication.R
-import projects.school.communication.adapter.CourseRecyclerAdapter
-import projects.school.communication.adapter.HomeParentRecyclerAdapter
 import projects.school.communication.adapter.VideoAdapter
 import projects.school.communication.model.Course
-import projects.school.communication.repository.Repository
 import projects.school.communication.ui.activities.MainActivity
 import projects.school.communication.viewmodel.CourseViewModel
 
 
-class CourseFragment : Fragment() {
+class CourseFragment : BaseFragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewModel: CourseViewModel
     private lateinit var recyclerAdapter: VideoAdapter
     private val args: CourseFragmentArgs by navArgs()
 
+    override var bottomNavigationVisibility: Int = View.GONE
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

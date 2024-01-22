@@ -17,22 +17,29 @@ class CourseViewModel(private val repository: Repository) : ViewModel() {
 
     val allCourses: MutableLiveData<List<Course>> = MutableLiveData()
 
+    val searchCourse: MutableLiveData<List<Course>> = MutableLiveData()
+
     init {
         getAllCourses()
     }
 
     private fun getAllCourses() = viewModelScope.launch {
-            val coursesList = extractData(repository.getAllCourses())
-            allCourses.postValue(coursesList)
+        val coursesList = extractData(repository.getAllCourses())
+        allCourses.postValue(coursesList)
+    }
+
+    fun searchCourse(query: String) = viewModelScope.launch {
+        val response = extractData(repository.searchCourse(query))
+        searchCourse.postValue(response)
     }
 
 
     //extracting our data from response as model class
-    private fun extractData(documents: List<Document<Map<String, Any>>>): List<Course>{
+    private fun extractData(documents: List<Document<Map<String, Any>>>): List<Course> {
         val gson = Gson()
         val dataList = mutableListOf<Course>()
 
-        for (document in documents){
+        for (document in documents) {
             val dataMap: Map<String, Any> = document.toMap()
             val json = gson.toJson(dataMap["data"])
 
@@ -44,7 +51,6 @@ class CourseViewModel(private val repository: Repository) : ViewModel() {
 
         return dataList
     }
-
 
 
 }

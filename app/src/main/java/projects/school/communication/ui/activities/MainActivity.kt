@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.android.synthetic.main.activity_main.bottomNavigationView
 import projects.school.communication.R
 import projects.school.communication.repository.Repository
 import projects.school.communication.viewmodel.CourseViewModel
@@ -26,9 +27,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         //bind navController and BottomNavigationView
-        val bottomNavigationView:BottomNavigationView = findViewById(R.id.bottomNavigationView)
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
         val navigationController = findNavController(R.id.fragmentContainerView)
         bottomNavigationView.setupWithNavController(navigationController)
 
     }
+
+    fun setVisibilityForBottomNavigationView(visibility: Int){
+        bottomNavigationView.visibility = visibility
+    }
+
 }

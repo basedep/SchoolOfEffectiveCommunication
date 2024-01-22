@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
-        android:id="@+id/scroll"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -28,7 +27,8 @@
                     android:scaleType="centerCrop"
                     android:tint="@color/semi_transparent"
                     tools:ignore="UseAppTint"
-                    tools:src="@drawable/im2" />
+                    tools:src="@drawable/im2"
+                    android:contentDescription="@string/description_item_imageview"/>
 
                 <TextView
                     android:id="@+id/titleText"
@@ -85,33 +85,37 @@
                 android:layout_margin="10dp"
                 android:textColor="@color/primary_text"
                 android:textSize="15sp"
-                tools:text="Lorem ipsum dolor sit agravida eu,non tortor in, bibendum finibus sem. Etiam commodo gravida justo sit amet commodo. Phasellus sollicitudin sem vitae ante porttitor, sed blandit dui faucibus. Donec sed ligula mattis, tincidunt enim nec, efficitur urna. Etiam quis aliquet est, sed scelerisque massa. Integer vel varius magna. Donec tristique, est nec accumsan egestas, velit mi malesuada tellus, eu tristiquet magna tortor sit amet lectus. Donec urna risus, mattis et odio id, pellentesque pellentesque elit. Aliquam pulvinar enim vel leo egestas, in maximus nibh rhoncus. Aliquam pharetra facilisis erat quis maximus. Donec et risus ut urna fermentum faucibus ut non dolor. Sed accumsan fringilla aliquam. Suspendisse sit amet nisl ut eros imperdiet fringilla in id nulla. Ut pretium pulvinar massa, sit amet pulvinar ante tincidunt volutpat." />
+                tools:text="Lorem ipsum dolor sit agravida eu,non tortor in, bibendum finibus sem. Etiam commodo gravida justo sit amet commodo. Phaselluda justo sit amet commodo. Phaselluda justo sit amet commodo. Phaselluda justo sit amet commodo. Phaselluda justo sit amet commodo. Phasellus sollicitudin sem vitae ante porttitor, sed blandit dui faucibus. Donec sed ligula mattis, tincidunt enim nec, efficitur urna. Etiam quis aliquet est, sed scelerisque massa. Integer vel varius magna. Donec tristique, est nec accumsan egestas, velit mi malesuada tellus, eu tristiquet magna tortor sit amet lectus. Donec urna risus, mattis et odio id, pellentesque pellentesque elit. Aliquam pulvinar enim vel leo egestas, in maximus nibh rhoncus. Aliquam pharetra facilisis erat quis maximus. Donec et risus ut urna fermentum faucibus ut non dolor. Sed accumsan fringilla aliquam. Suspendisse sit amet nisl ut eros imperdiet fringilla in id nulla. Ut pretium pulvinar massa, sit amet pulvinar ante tincidunt volutpat." />
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                >
 
 
-                <ImageButton
-                    android:id="@+id/addButton"
-                    android:layout_width="wrap_content"
+                <Button
+                    android:id="@+id/add_button"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/primary"
-                    android:contentDescription="@string/add_to_my_courses"
-                    android:minHeight="48dp"
-                    android:src="@drawable/ic_baseline_add_24" />
+                    android:text="@string/add_button_text"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    tools:ignore="ButtonStyle" />
 
-                <ImageButton
-                    android:id="@+id/favoriteButton"
-                    android:layout_width="wrap_content"
+
+                <Button
+                    android:id="@+id/add_to_favorite_button"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/primary"
-                    android:contentDescription="@string/add_to_my_favorite"
-                    android:minHeight="48dp"
-                    android:src="@drawable/selector_favorite_icon" />
+                    android:text="@string/add_to_favorite_button"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    tools:ignore="ButtonStyle" />
 
             </LinearLayout>
 
@@ -167,11 +171,11 @@
                 android:id="@+id/recycler"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="13dp" />
+                android:layout_margin="13dp"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
-        </LinearLayout>
+    </LinearLayout>
 
+    </androidx.core.widget.NestedScrollView>
 
-    </ScrollView>
-
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -27,4 +27,6 @@
     <string name="password">Пароль</string>
     <string name="pass_the_test">Пройти тест</string>
     <string name="watch">Смотреть</string>
+    <string name="add_button_text">Добавить</string>
+    <string name="add_to_favorite_button">В избранное</string>
 </resources>

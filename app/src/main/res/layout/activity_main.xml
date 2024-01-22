@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_background">
+    android:background="@color/white">
 
     <fragment
         android:id="@+id/fragmentContainerView"
@@ -23,8 +23,8 @@
         android:layout_width="match_parent"
         android:layout_height="57dp"
         app:menu="@menu/bottom_navigation_menu"
-        android:layout_margin="5dp"
         style="@style/BottomNavStyle"
+        app:labelVisibilityMode="selected"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

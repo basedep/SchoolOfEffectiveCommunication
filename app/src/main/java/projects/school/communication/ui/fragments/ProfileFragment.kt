@@ -7,13 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import projects.school.communication.R
 
-class ProfileFragment : Fragment() {
+class ProfileFragment : BaseFragment() {
+
+    override var bottomNavigationVisibility: Int = View.VISIBLE
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

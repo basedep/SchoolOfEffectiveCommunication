@@ -17,7 +17,6 @@ class CourseRecyclerAdapter() : RecyclerView.Adapter<CourseRecyclerAdapter.Child
 
     val differ = AsyncListDiffer(this, MyDiffUtil)
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChildViewHolder {
 
         //inflate child view
@@ -38,6 +37,7 @@ class CourseRecyclerAdapter() : RecyclerView.Adapter<CourseRecyclerAdapter.Child
                 .centerCrop()
                 .into(image_view)
             header.text = course.header
+            category_text.text = course.category
             progressBar.progress = course.progress
             setOnClickListener {
                 onItemClickListener?.let{ it(course) }

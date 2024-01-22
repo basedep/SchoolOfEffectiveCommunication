@@ -10,7 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import projects.school.communication.R
 import projects.school.communication.adapter.CourseRecyclerAdapter
 
-class CoursesFragment : Fragment() {
+class CoursesFragment : BaseFragment() {
+
+    override var bottomNavigationVisibility: Int = View.VISIBLE
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var recyclerAdapter: CourseRecyclerAdapter
