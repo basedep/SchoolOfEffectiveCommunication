@@ -37,7 +37,21 @@
         android:id="@+id/profileFragment"
         android:name="projects.school.communication.ui.fragments.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+
+        <action
+            android:id="@+id/action_profileFragment_to_logInFragment"
+            app:destination="@id/logInFragment" />
+
+        <action
+            android:id="@+id/action_profileFragment_to_signInFragment"
+            app:destination="@id/signInFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/favoriteFragment"
@@ -92,5 +106,22 @@
             app:argType="projects.school.communication.model.Video"/>
 
     </activity>
+
+    <fragment
+        android:id="@+id/logInFragment"
+        android:name="projects.school.communication.ui.fragments.LogInFragment"
+        android:label="fragment_log_in"
+        tools:layout="@layout/fragment_log_in" />
+
+
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="projects.school.communication.ui.fragments.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_signInFragment_to_profileFragment2"
+            app:destination="@id/profileFragment" />
+    </fragment>
 
 </navigation>

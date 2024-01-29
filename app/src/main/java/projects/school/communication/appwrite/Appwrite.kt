@@ -25,6 +25,7 @@ class Appwrite() {
                 .setEndpoint(BASE_URL)
                 .setProject(PROJECT_ID)
 
+
             database = Databases(client!!)
             account = Account(client!!)
             storage = Storage(client!!)
@@ -36,7 +37,9 @@ class Appwrite() {
             return database ?: throw IllegalStateException("Database not initialized")
     }
 
-
+    fun getAccountInstance(): Account {
+        return account ?: throw IllegalStateException("Account not initialized")
+    }
 
 }
 

@@ -13,6 +13,7 @@
     <color name="red">#E53935</color>
     <color name="light_gray">#BDB4B4</color>
     <color name="transparent">#00000000</color>
+    <color name="semi_grey">#E0DDDD</color>
     <color name="green">#109F16</color>
     <color name="semi_transparent">#7A505751</color>
 </resources>

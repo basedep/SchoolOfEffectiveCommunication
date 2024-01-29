@@ -1,11 +1,10 @@
 package projects.school.communication.ui.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
+import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,7 +18,6 @@ import projects.school.communication.adapter.CourseRecyclerAdapter
 import projects.school.communication.ui.activities.MainActivity
 import projects.school.communication.utils.Constants.SEARCH_DELAY
 import projects.school.communication.viewmodel.CourseViewModel
-import java.time.Duration
 
 class SearchFragment : BaseFragment() {
 
@@ -29,7 +27,11 @@ class SearchFragment : BaseFragment() {
     private lateinit var courseRecyclerAdapter: CourseRecyclerAdapter
     private lateinit var viewModel: CourseViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,  savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         viewModel = (activity as MainActivity).viewModel
         val view = inflater.inflate(R.layout.fragment_search, container, false)
 
@@ -44,27 +46,31 @@ class SearchFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        courseRecyclerAdapter.setOnItemClickListener{
-            val bundle = Bundle().apply{
+        courseRecyclerAdapter.setOnItemClickListener {
+            val bundle = Bundle().apply {
                 putSerializable("courseObject", it)
             }
 
             findNavController().navigate(
                 R.id.action_searchFragment_to_courseFragment, //action
-                bundle    //передаем объект Article во фрагмент
+                bundle    //передаем объект Course во фрагмент
             )
+
         }
 
 
-
         var job: Job? = null
-        search_bar.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
+        search_bar.setOnQueryTextListener(object :
+            androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 job?.cancel()               //отменяем текущий Job и создаем новую
                 job = MainScope().launch {
                     query?.let {
                         if (it.isNotEmpty())
                             viewModel.searchCourse(it)  //делаем запрос с задержкой в 500
+                        else
+                            viewModel.searchAllCourses()
+
                     }
                 }
                 return true
@@ -77,6 +83,8 @@ class SearchFragment : BaseFragment() {
                     newText.let {
                         if (it.isNotEmpty())
                             viewModel.searchCourse(it)  //делаем запрос с задержкой в 500
+                        else
+                            viewModel.searchAllCourses()
                     }
                 }
                 return true
@@ -84,16 +92,30 @@ class SearchFragment : BaseFragment() {
         })
 
 
+        //наблюдаем список найденных курсов и отправляем список в адаптер
         viewModel.searchCourse.observe(viewLifecycleOwner) { response ->
             courseRecyclerAdapter.differ.submitList(response)
         }
 
+        //очищать searchView при нажатии кнопки назад
+        requireActivity()
+            .onBackPressedDispatcher
+            .addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    search_bar.setQuery("", false)
+                    if (isEnabled) {
+                        isEnabled = false
+                        requireActivity().onBackPressedDispatcher.onBackPressed()
+                    }
+                }
+            }
+            )
 
     }
 
-    private fun setupRecycler(){
+    private fun setupRecycler() {
         courseRecyclerAdapter = CourseRecyclerAdapter()
-        recycler.apply{
+        recycler.apply {
             adapter = courseRecyclerAdapter
             layoutManager = GridLayoutManager(context, 2)
         }

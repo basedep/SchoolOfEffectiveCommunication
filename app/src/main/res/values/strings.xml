@@ -29,4 +29,11 @@
     <string name="watch">Смотреть</string>
     <string name="add_button_text">Добавить</string>
     <string name="add_to_favorite_button">В избранное</string>
+    <string name="signIn">Зарегистрироваться</string>
+    <string name="Enter">Вход</string>
+    <string name="Register">Регистрация</string>
+    <string name="name_hint">ФИО</string>
+    <string name="mail_hint">E-mail</string>
+    <string name="phone_hint">Телефон</string>
+    <string name="pass_hint">Пароль</string>
 </resources>
