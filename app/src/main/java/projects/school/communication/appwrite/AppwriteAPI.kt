@@ -15,10 +15,11 @@ interface AppwriteAPI {
 
     suspend fun searchCourse(query: String): List<Document<Map<String, Any>>>
 
-    suspend fun onLogIn(user: User):Session
+    suspend fun onLogIn(email:String, password: String):Session
 
     suspend fun onRegister(user: User, userID: String)
 
     suspend fun addUser(user: User, userID: String)
+
 
 }

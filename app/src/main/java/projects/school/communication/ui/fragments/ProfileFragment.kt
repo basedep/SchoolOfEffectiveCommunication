@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import kotlinx.android.synthetic.main.fragment_profile.profileLoginButton
 import kotlinx.android.synthetic.main.fragment_profile.profileSignInButton
 import kotlinx.android.synthetic.main.fragment_sign_in.signInButton
 import projects.school.communication.R
@@ -27,6 +28,13 @@ class ProfileFragment : BaseFragment() {
             findNavController().navigate(
                 R.id.action_profileFragment_to_signInFragment,
                 null)
+        }
+
+        profileLoginButton.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_profileFragment_to_logInFragment,
+                null
+            )
         }
 
     }

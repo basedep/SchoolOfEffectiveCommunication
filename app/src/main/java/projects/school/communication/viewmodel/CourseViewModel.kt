@@ -6,13 +6,16 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
 import io.appwrite.exceptions.AppwriteException
+import io.appwrite.extensions.gson
 import io.appwrite.models.Document
-import io.appwrite.models.Session
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import projects.school.communication.appwrite.Appwrite
 import projects.school.communication.model.Course
 import projects.school.communication.model.User
 import projects.school.communication.repository.Repository
-import java.lang.Exception
 
 class CourseViewModel(private val repository: Repository) : ViewModel() {
 
@@ -21,6 +24,8 @@ class CourseViewModel(private val repository: Repository) : ViewModel() {
     val searchCourse: MutableLiveData<List<Course>> = MutableLiveData()
 
     var isRegisterSuccessful: MutableLiveData<Boolean> = MutableLiveData()
+
+    var isLoginSuccessful: MutableLiveData<Boolean> = MutableLiveData()
 
     // изначально заполнить всеми курсами
     init {
@@ -44,18 +49,19 @@ class CourseViewModel(private val repository: Repository) : ViewModel() {
         searchCourse.postValue(response)
     }
 
-    fun onLogIn(user: User) = viewModelScope.launch {
+    fun loginUser(email: String, password: String) = viewModelScope.async {
         try {
-            val session = repository.onLogIn(user)
-            session.id
-        }catch (e: Exception){
-
+            val response = repository.onLogIn(email, password)
+            isLoginSuccessful.value = true
+            response
+        }catch (e: AppwriteException){
+            Log.d("communication", "onLogIn: $e")
+            isLoginSuccessful.value = false
         }
     }
 
 
-
-    fun onRegister(user: User, userID: String) = viewModelScope.launch {
+    fun registerUser(user: User, userID: String) = viewModelScope.launch {
         try {
             repository.onRegister(user, userID)
             repository.addUser(user, userID)
@@ -66,6 +72,13 @@ class CourseViewModel(private val repository: Repository) : ViewModel() {
         }
     }
 
+
+    fun getUserData(userID: String) = viewModelScope.async{
+            val gson = Gson()
+            val result = repository.getUserData(userID)
+            val data: User = gson.fromJson(gson.toJson(result), User::class.java)
+            data
+    }
 
     //extracting our data from response as model class
     private fun extractData(documents: List<Document<Map<String, Any>>>): List<Course> {

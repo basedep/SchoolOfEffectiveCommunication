@@ -59,7 +59,7 @@ class SignInFragment : BaseFragment() {
                 courses = null
             )
 
-            viewModel.onRegister(user!!, ID.custom(UUID.randomUUID().toString()))
+            viewModel.registerUser(user!!, ID.custom(UUID.randomUUID().toString()))
             viewModel.isRegisterSuccessful.observe(viewLifecycleOwner){ status ->
                 status?.let{
                     viewModel.isRegisterSuccessful.value = null

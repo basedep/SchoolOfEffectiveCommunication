@@ -26,13 +26,17 @@ class Repository : AppwriteAPI {
                listOf(Query.search("header", query))
            ).documents
 
-    override suspend fun onLogIn(user: User): Session =
-        appwriteAccount.createEmailSession(user.email, user.password)
+    override suspend fun onLogIn(email: String, password: String): Session =
+        appwriteAccount.createEmailSession(email, password)
 
 
     override suspend fun onRegister(user: User, userID: String) {
         appwriteAccount.create(userID, user.email, user.password, user.fullName)
     }
+
+    suspend fun getUserData(userDocumentId: String) =
+        appwriteDatabase.getDocument(DATABASE_ID, COLLECTION_USERS_ID, userDocumentId).data
+
 
 
     override suspend fun addUser(user: User, userID: String) {
