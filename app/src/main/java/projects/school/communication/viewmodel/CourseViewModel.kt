@@ -9,7 +9,9 @@ import io.appwrite.exceptions.AppwriteException
 import io.appwrite.extensions.gson
 import io.appwrite.models.Document
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import projects.school.communication.appwrite.Appwrite
@@ -24,8 +26,6 @@ class CourseViewModel(private val repository: Repository) : ViewModel() {
     val searchCourse: MutableLiveData<List<Course>> = MutableLiveData()
 
     var isRegisterSuccessful: MutableLiveData<Boolean> = MutableLiveData()
-
-    var isLoginSuccessful: MutableLiveData<Boolean> = MutableLiveData()
 
     // изначально заполнить всеми курсами
     init {
@@ -50,34 +50,27 @@ class CourseViewModel(private val repository: Repository) : ViewModel() {
     }
 
     fun loginUser(email: String, password: String) = viewModelScope.async {
-        try {
-            val response = repository.onLogIn(email, password)
-            isLoginSuccessful.value = true
-            response
-        }catch (e: AppwriteException){
-            Log.d("communication", "onLogIn: $e")
-            isLoginSuccessful.value = false
-        }
+        repository.onLogIn(email, password)
     }
+
 
 
     fun registerUser(user: User, userID: String) = viewModelScope.launch {
         try {
             repository.onRegister(user, userID)
             repository.addUser(user, userID)
-            isRegisterSuccessful.value = true
-        } catch (e: AppwriteException) {
-            Log.d("communication", "onRegister: $e, isRegisterCastException ${isRegisterSuccessful.value}")
-            isRegisterSuccessful.value = false
+        } catch (e: Exception) {
+            this.cancel()
         }
+
     }
 
 
-    fun getUserData(userID: String) = viewModelScope.async{
-            val gson = Gson()
-            val result = repository.getUserData(userID)
-            val data: User = gson.fromJson(gson.toJson(result), User::class.java)
-            data
+    fun getUserData(userID: String) = viewModelScope.async {
+        val gson = Gson()
+        val result = repository.getUserData(userID)
+        val data: User = gson.fromJson(gson.toJson(result), User::class.java)
+        data
     }
 
     //extracting our data from response as model class

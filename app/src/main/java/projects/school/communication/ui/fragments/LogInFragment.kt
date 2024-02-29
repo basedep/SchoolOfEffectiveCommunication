@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import io.appwrite.exceptions.AppwriteException
 import io.appwrite.models.Session
 import kotlinx.android.synthetic.main.fragment_log_in.email
@@ -53,26 +54,24 @@ class LogInFragment : BaseFragment() {
 
         lifecycleScope.launch {
             try {
-                val loginUser = viewModel.loginUser(email.text.toString(), password.text.toString())
-                val userSession = loginUser.await() as Session
-                Log.d("communication", "login: $userSession")
+                val userSession = viewModel.loginUser(email.text.toString(), password.text.toString()).await()
+                val userData = viewModel.getUserData(userSession.userId).await()
 
-                val requiredUserData = viewModel.getUserData(userSession.userId)
-
-                val userData = requiredUserData.await()
-                Log.d("communication", "login: ${userData.fullName}")
                 SessionUtil(requireContext()).saveSessionPreferences(
                     userSession.id,
                     userSession.userId,
                     userData.fullName,
                     userData.email
                 )
-            } catch (e: Exception) {
 
+                Toast.makeText(requireContext(), "Вход выполнен", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_logInFragment_to_profileFragment)
+
+            } catch (e: Exception) {
                 when (e) {
                     is AppwriteException, is ClassCastException -> {
-                        Toast.makeText(requireContext(), "Пользователь не найден", Toast.LENGTH_SHORT).show()
-                        Log.d("communication", "login exception: $e") }
+                        Toast.makeText(requireContext(), "Неверные данные", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
         }
