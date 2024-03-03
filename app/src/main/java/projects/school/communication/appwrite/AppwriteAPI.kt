@@ -21,5 +21,6 @@ interface AppwriteAPI {
 
     suspend fun addUser(user: User, userID: String)
 
+    suspend fun deleteSession(sessionID: String)
 
 }

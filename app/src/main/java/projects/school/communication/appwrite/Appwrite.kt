@@ -25,10 +25,10 @@ class Appwrite() {
                 .setEndpoint(BASE_URL)
                 .setProject(PROJECT_ID)
 
-
             database = Databases(client!!)
             account = Account(client!!)
             storage = Storage(client!!)
+
         }
     }
 

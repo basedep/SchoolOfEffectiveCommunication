@@ -43,5 +43,9 @@ class Repository : AppwriteAPI {
         appwriteDatabase.createDocument(DATABASE_ID, COLLECTION_USERS_ID, userID, user)
     }
 
+    override suspend fun deleteSession(sessionID: String) {
+        appwriteAccount.deleteSession(sessionID)
+    }
+
 
 }

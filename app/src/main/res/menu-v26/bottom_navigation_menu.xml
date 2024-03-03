@@ -17,12 +17,6 @@
         android:icon="@drawable/ic_bottom_nav_play_arrow_24"/>
 
     <item
-        android:id="@+id/favoriteFragment"
-        android:icon="@drawable/ic_item_favorite_24"
-        android:iconTint="@color/white"
-        android:title="@string/favourite" />
-
-    <item
         android:id="@+id/profileFragment"
         android:title="@string/profile"
         android:icon="@drawable/ic_bottom_nav_person_24"/>

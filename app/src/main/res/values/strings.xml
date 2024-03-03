@@ -36,4 +36,6 @@
     <string name="mail_hint">E-mail</string>
     <string name="phone_hint">Телефон</string>
     <string name="pass_hint">Пароль</string>
+    <string name="exit">Выйти</string>
+    <string name="delete_account">Удалить аккаунт</string>
 </resources>

@@ -25,8 +25,6 @@ class CourseViewModel(private val repository: Repository) : ViewModel() {
 
     val searchCourse: MutableLiveData<List<Course>> = MutableLiveData()
 
-    var isRegisterSuccessful: MutableLiveData<Boolean> = MutableLiveData()
-
     // изначально заполнить всеми курсами
     init {
         getAllCourses()
@@ -51,6 +49,10 @@ class CourseViewModel(private val repository: Repository) : ViewModel() {
 
     fun loginUser(email: String, password: String) = viewModelScope.async {
         repository.onLogIn(email, password)
+    }
+
+    fun deleteSession(sessionID: String) = viewModelScope.launch{
+        repository.deleteSession(sessionID)
     }
 
 

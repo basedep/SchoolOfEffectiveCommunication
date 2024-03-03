@@ -8,8 +8,11 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_profile.profileLoginButton
 import kotlinx.android.synthetic.main.fragment_profile.profileSignInButton
+import kotlinx.android.synthetic.main.fragment_profile.user_email
+import kotlinx.android.synthetic.main.fragment_profile.user_name
 import kotlinx.android.synthetic.main.fragment_sign_in.signInButton
 import projects.school.communication.R
+import projects.school.communication.utils.SessionUtil
 
 class ProfileFragment : BaseFragment() {
 
@@ -23,6 +26,14 @@ class ProfileFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val userSession = SessionUtil(view.context)
+        val name = userSession.getPreference("userName")
+        val email = userSession.getPreference("userEmail")
+        if (name.isNotBlank() && email.isNotBlank()){
+            user_name.text = name
+            user_email.text = email
+        }
 
         profileSignInButton.setOnClickListener {
             findNavController().navigate(
