@@ -16,7 +16,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="sans-serif-black"
-        android:text="John Doe"
+        android:text="@string/name_placeholder"
         android:textColor="@color/primary_text"
         android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@+id/email"
@@ -30,7 +30,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="sans-serif-black"
-        android:text="mode_private@mail.ru"
+        android:text="@string/email_placeholder"
         android:textColor="@color/secondary_text"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
@@ -40,7 +40,7 @@
         android:id="@+id/registerLinearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="24dp"
         android:visibility="visible">
 
 
@@ -69,11 +69,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="24dp"
         android:visibility="gone">
 
         <Button
-            android:id="@+id/exit_button"
+            android:id="@+id/profile_exit_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/primary_text"
@@ -81,7 +81,7 @@
             android:text="@string/exit" />
 
         <Button
-            android:id="@+id/delete_button"
+            android:id="@+id/profile_delete_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/red"
