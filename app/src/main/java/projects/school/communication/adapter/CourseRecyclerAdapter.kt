@@ -19,7 +19,6 @@ class CourseRecyclerAdapter() : RecyclerView.Adapter<CourseRecyclerAdapter.Child
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChildViewHolder {
 
-        //inflate child view
         val view = LayoutInflater.from(parent.context).inflate(R.layout.recycler_item, parent, false)
 
         return ChildViewHolder(view)
@@ -38,7 +37,6 @@ class CourseRecyclerAdapter() : RecyclerView.Adapter<CourseRecyclerAdapter.Child
                 .into(image_view)
             header.text = course.header
             category_text.text = course.category
-            progressBar.progress = course.progress
             setOnClickListener {
                 onItemClickListener?.let{ it(course) }
             }

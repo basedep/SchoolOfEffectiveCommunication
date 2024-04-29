@@ -74,8 +74,7 @@ class SignInFragment : BaseFragment() {
             fullName = name.text.toString(),
             phoneNumber = phone.text.toString(),
             email = email.text.toString(),
-            password = password.text.toString(),
-            courses = null
+            password = password.text.toString()
         )
 
         lifecycleScope.launch {

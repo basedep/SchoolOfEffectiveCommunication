@@ -69,7 +69,6 @@ class ProfileFragment : BaseFragment() {
             Toast.makeText(requireContext(), "Выход из аккаунта", Toast.LENGTH_SHORT).show()
             baseProfileUIView()
         }
-
     }
 
     private fun baseProfileUIView(){

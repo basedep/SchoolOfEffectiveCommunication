@@ -19,9 +19,11 @@
         android:text="@string/name_placeholder"
         android:textColor="@color/primary_text"
         android:textSize="25sp"
+        android:clickable="true"
         app:layout_constraintBottom_toTopOf="@+id/email"
         app:layout_constraintStart_toStartOf="@+id/email"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:focusable="true" />
 
     <TextView
         android:id="@+id/user_email"

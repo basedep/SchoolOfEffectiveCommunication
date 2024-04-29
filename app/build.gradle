@@ -85,9 +85,13 @@ dependencies {
 
     implementation 'com.google.android.exoplayer:exoplayer:2.18.1'
 
+    //проигрыватель для видео
     def mediaVersion = "1.0.1"
     implementation "androidx.media3:media3-exoplayer:$mediaVersion"
     implementation "androidx.media3:media3-ui:$mediaVersion"
     implementation "androidx.media3:media3-exoplayer-dash:$mediaVersion"
+
+    //анимация
+    implementation "com.airbnb.android:lottie:6.4.0"
 
 }

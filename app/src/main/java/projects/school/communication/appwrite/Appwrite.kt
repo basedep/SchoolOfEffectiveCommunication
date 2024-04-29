@@ -9,7 +9,7 @@ import io.appwrite.services.Storage
 import projects.school.communication.utils.Constants.BASE_URL
 import projects.school.communication.utils.Constants.PROJECT_ID
 
-class Appwrite() {
+class Appwrite {
 
     companion object{
         private var client: Client? = null
